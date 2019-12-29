@@ -1,6 +1,9 @@
 import random
 
 from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
+
+
 from time import sleep
 
 from creds import read_creds, choose_creds
@@ -18,6 +21,10 @@ def main():
     # driver = get_proxy_driver(None)
     driver = webdriver.Chrome(CHROME_DRIVER_PATH)
     driver.get('https://www.olx.ua/')
+    scrollToCenter(driver)
+    # click_random_advartisment(driver)
+
+
     driver.find_element_by_id('topLoginLink').click()
     driver.find_element_by_id('userEmail').send_keys(account_to_use['login'])
     driver.find_element_by_id('userPass').send_keys(account_to_use['password'])
@@ -41,6 +48,12 @@ def get_proxy_driver(proxies_list):
     chrome_options.add_argument(f'--proxy-server={proxy_to_use}')
 
     return webdriver.Chrome(CHROME_DRIVER_PATH, options=chrome_options)
+
+
+def scrollToCenter(driver):
+    for devisor in range(5, 0, -1):
+        driver.execute_script(f'window.scrollTo(0, screen.height/{devisor})')
+        sleep(0.25)
 
 
 if __name__ == "__main__":
