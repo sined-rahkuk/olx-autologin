@@ -3,7 +3,7 @@ import random
 from selenium import webdriver
 from time import sleep
 
-from creds import read_creds
+from creds import read_creds, choose_creds
 from proxies import fetch_list_of_proxies
 
 from conf import CHROME_DRIVER_PATH
@@ -13,8 +13,7 @@ def main():
     # proxies_list = fetch_list_of_proxies()
 
     creds_list = read_creds()
-    # TODO: replace with an actual logic to let the user to choose
-    account_to_use = creds_list[0]
+    account_to_use = choose_creds(creds_list)
 
     # driver = get_proxy_driver(None)
     driver = webdriver.Chrome(CHROME_DRIVER_PATH)
