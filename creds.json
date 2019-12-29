@@ -1,0 +1,12 @@
+{
+  "creds_list": [
+    {
+      "login": "valid_email@mail.com",
+      "password": "testpass123"
+    },
+    {
+      "login": "test@gmail.com",
+      "password": "testpass123"
+    }
+  ]
+}
