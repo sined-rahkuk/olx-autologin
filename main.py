@@ -21,7 +21,6 @@ def main():
     # driver = get_proxy_driver(None)
     driver = webdriver.Chrome(CHROME_DRIVER_PATH)
     driver.get('https://www.olx.ua/')
-    scrollToCenter(driver)
     # click_random_advartisment(driver)
 
 
